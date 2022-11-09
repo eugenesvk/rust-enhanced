@@ -181,6 +181,9 @@ contexts:
     # is more performant as the below
     # - match: '\b((?:debug_)?assert_(?:eq|ne)!)\s*(\()'
 
+    - match: '\b(chunk!)(?=\s*(\{))'
+      scope: support.macro.rust
+      push: block-lua
     - match: '\b{{identifier}}!(?=\s*(\(|\{|\[))'
       scope: support.macro.rust
 
@@ -302,6 +305,30 @@ contexts:
     - include: lifetime
     - include: keywords
     - include: symbols
+
+  block-lua      :
+    - match      : '\}'
+      scope      : meta.block.rust punctuation.section.block.end.rust
+      pop        : true
+    - match      : '\{'
+      scope      : punctuation.section.block.begin.rust
+      pop        : true
+      push       : block-lua-body
+  block-lua-body :
+    - meta_scope : meta.block.rust
+    - match      : '(?=\})'
+      pop        : true
+    - include    : comments            # only works for the pre-lua comments
+    - include    : lua
+  lua            :
+    - match      : '(?!=\}/\*\s*lua\s*\*/)'
+      embed      : scope:source.lua
+      embed_scope: meta.embedded.lua
+      escape     : '(\})(/\*\s*lua\s*\*/)'
+      escape_captures:
+        0: punctuation.section.block.end.lua
+        1: punctuation.section.block.end.rust
+      pop: true
 
   block:
     - match: '\}'

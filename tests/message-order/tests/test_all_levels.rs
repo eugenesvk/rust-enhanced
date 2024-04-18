@@ -1,7 +1,7 @@
 trait Trait {}
 
 // This triggers a warning about missing `dyn`
-fn Foo(x: &Fn()) {}
+fn Foo(_x: &Fn()) {}
 
 pub fn f() {
     let x = Box::new(0u32);

@@ -10,11 +10,11 @@
 
 // error-pattern: parameters were supplied
 
-/*BEGIN*/fn f(x: isize) {
-//       ^^^^^^^^^^^^^^ERR(>=1.24.0-beta,<1.49.0-beta) defined here
-//       ^^^^^^^^^^^^^^MSG(>=1.24.0-beta,<1.49.0-beta) See Primary: ↓:25
+/*BEGIN*/fn f(_x: isize) {
+//       ^^^^^^^^^^^^^^^ERR(>=1.24.0-beta,<1.49.0-beta) defined here
+//       ^^^^^^^^^^^^^^^MSG(>=1.24.0-beta,<1.49.0-beta) See Primary: ↓:25
 //          ^NOTE(>=1.49.0-beta) defined here
-//            ^^^^^^^^NOTE(>=1.49.0-beta)
+//            ^^^^^^^^^NOTE(>=1.49.0-beta)
 //          ^MSG(>=1.49.0-beta) See Primary: ↓:25
 }/*END*/
 // ~ERR(<1.24.0-beta) defined here

@@ -55,12 +55,12 @@ use std::hash::{Hash, Hasher};
 struct X;
 
 impl Hash for X {
-    fn hash(&self, hasher: &mut impl Hasher) {}
-//                              ^^^^^^^^^^^ERR method `hash` has incompatible signature
-//                              ^^^^^^^^^^^ERR(>=1.28.0-beta) expected generic parameter
-//                              ^^^^^^^^^^^ERR(<1.28.0-beta) annotation in impl
-//                              ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) Errors occurred in
-//                              ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) Macro text:
-//                              ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) method `hash` has incompatible
-//                              ^^^^^^^^^^^MSG(>=1.44.0-beta) See Also (external): mod.rs:
+    fn hash(&self, _hasher: &mut impl Hasher) {}
+//                               ^^^^^^^^^^^ERR method `hash` has incompatible signature
+//                               ^^^^^^^^^^^ERR(>=1.28.0-beta) expected generic parameter
+//                               ^^^^^^^^^^^ERR(<1.28.0-beta) annotation in impl
+//                               ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) Errors occurred in
+//                               ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) Macro text:
+//                               ^^^^^^^^^^^ERR(>=1.32.0,<1.44.0-beta) method `hash` has incompatible
+//                               ^^^^^^^^^^^MSG(>=1.44.0-beta) See Also (external): mod.rs:
 }

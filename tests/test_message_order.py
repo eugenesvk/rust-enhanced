@@ -38,7 +38,7 @@ TEST_DATA = [
     {'command': 'build',
      'path': 'tests/test_all_levels.rs',
      'messages': [
-        (2, 'tests/test_all_levels.rs', 'WARN', (3, 15), 'tests/test_all_levels.rs:4', ' --> tests/test_all_levels.rs:4:12'),
+        (2, 'tests/test_all_levels.rs', 'WARN', (3, 16), 'tests/test_all_levels.rs:4', ' --> tests/test_all_levels.rs:4:13'),
         (1, 'tests/test_all_levels.rs', 'ERR', (8, 25), 'tests/test_all_levels.rs:9', ' --> tests/test_all_levels.rs:9:25'),
      ]
     },

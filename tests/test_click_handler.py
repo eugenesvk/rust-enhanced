@@ -6,13 +6,15 @@ from rust_test_common import *
 
 
 REPLACEMENT_TESTS = [
-    ('tests/error-tests/tests/cast-to-unsized-trait-object-suggestion.rs', None,
+    ('tests/error-tests/tests/cast-to-unsized-trait-object-suggestion.rs', '>=1.89.0-beta',
         # Before
         ((11, '    &1 as dyn Send;'),
-         (15, '    Box::new(1) as dyn Send;')),
+         (17, '    Box::new(1) as dyn Send;')),
         # After
         ((11, '    &1 as &dyn Send;'),
-         (15, '    Box::new(1) as Box<dyn Send>;')),
+         (17, '    Box::new(1) as Box<dyn Send;'),
+         (17, '    Box::new(1) as Box<dyn Send>;'),
+         ),
     ),
     ('tests/error-tests/tests/impl-generic-mismatch.rs', '>=1.83.0-beta',
         # Before

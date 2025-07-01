@@ -6,6 +6,9 @@ from rust_test_common import *
 class TestPhantomStyle(TestBase):
 
     def test_style_none(self):
+        rustc_version = util.get_rustc_version(sublime.active_window(), plugin_path)
+        if semver.match(rustc_version, '<1.89.0-beta'):
+            return
         self._override_setting('rust_phantom_style', 'none')
         self._with_open_file('tests/error-tests/tests/cast-to-unsized-trait-object-suggestion.rs',
             self._test_style_none)
@@ -20,9 +23,12 @@ class TestPhantomStyle(TestBase):
             regions = ui.view_regions[view.file_name()]
             # Extremely basic check, the number of unique regions displayed.
             rs = [(r.a, r.b) for r in regions]
-            self.assertEqual(len(set(rs)), 4)
+            self.assertEqual(len(set(rs)), 5)
 
     def test_style_popup(self):
+        rustc_version = util.get_rustc_version(sublime.active_window(), plugin_path)
+        if semver.match(rustc_version, '<1.89.0-beta'):
+            return
         self._override_setting('rust_phantom_style', 'popup')
         self._with_open_file('tests/error-tests/tests/cast-to-unsized-trait-object-suggestion.rs',
             self._test_style_popup)
@@ -37,7 +43,7 @@ class TestPhantomStyle(TestBase):
             regions = ui.view_regions[view.file_name()]
             # Extremely basic check, the number of unique regions displayed.
             rs = [(r.a, r.b) for r in regions]
-            self.assertEqual(len(set(rs)), 4)
+            self.assertEqual(len(set(rs)), 5)
             # Trigger popup.
             self.assertEqual(len(ui.popups), 0)
             for region in regions:
@@ -48,7 +54,7 @@ class TestPhantomStyle(TestBase):
                 ui.popups.clear()
 
             # Trigger gutter hover.
-            for lineno in (12, 16):
+            for lineno in (12, 18):
                 pt = view.text_point(lineno - 1, 0)
                 messages.message_popup(view, pt, sublime.HOVER_GUTTER)
                 popups = ui.popups[view.file_name()]

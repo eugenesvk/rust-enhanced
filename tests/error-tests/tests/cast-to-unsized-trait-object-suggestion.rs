@@ -11,11 +11,17 @@
 fn main() {
     &1 as dyn Send;
 //  ^^^^^^^^^^^^^^ERR cast to unsized type
-//        ^^^^^^^^HELP try casting to
-//        ^^^^^^^^HELP /Accept Replacement:.*&dyn Send/
+//        ^^^^^^^^HELP(<1.89.0-beta) try casting to
+//        |HELP(>=1.89.0-beta) consider casting to
+//        ^^^^^^^^HELP(<1.89.0-beta) /Accept Replacement:.*&dyn Send/
+//        |HELP(>=1.89.0-beta) /Accept Replacement:.*&/
     Box::new(1) as dyn Send;
 //  ^^^^^^^^^^^^^^^^^^^^^^^ERR cast to unsized type
 //                 ^^^^^^^^HELP(<1.46.0-beta) try casting to a `Box` instead
-//                 ^^^^^^^^HELP(>=1.46.0-beta) you can cast to a `Box` instead
-//                 ^^^^^^^^HELP /Accept Replacement:.*Box<dyn Send>/
+//                 ^^^^^^^^HELP(>=1.46.0-beta,<1.89.0-beta) you can cast to a `Box` instead
+//                 |HELP(>=1.89.0-beta) you can cast to a `Box` instead
+//                         |HELP(>=1.89.0-beta) you can cast to a `Box` instead
+//                 ^^^^^^^^HELP(<1.89.0-beta) /Accept Replacement:.*Box<dyn Send>/
+//                 |HELP(>=1.89.0-beta) /Accept Replacement:.*Box</
+//                         |HELP(>=1.89.0-beta) /Accept Replacement:.*>/
 }

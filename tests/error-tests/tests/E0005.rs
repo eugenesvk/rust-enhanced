@@ -25,7 +25,7 @@ fn main() {
 //  |HELP(>=1.61.0-beta,<1.68.0-beta) /Accept Replacement:.*/
 //                 |HELP(>=1.61.0-beta,<1.68.0-beta) you might want to use `if let`
 //                 |HELP(>=1.61.0-beta,<1.68.0-beta) you might want to use `if let`
-//                 |HELP(>=1.68.0-beta) you might want to use `let else`
+//                 |HELP(>=1.68.0-beta) you might want to use
 //                 |HELP(>=1.61.0-beta,<1.68.0-beta) /Accept Replacement:.*/
 //                 |HELP(>=1.66.0-beta,<1.68.0-beta) alternatively, you might want to use
 //                 |HELP(>=1.66.0-beta) /Accept Replacement:.*todo!.*/

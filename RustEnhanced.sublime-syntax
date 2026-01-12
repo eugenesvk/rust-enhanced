@@ -1443,7 +1443,7 @@ contexts:
             0?                    # [0]
                ((\d+\$?|{{identifier}}\$)   )     ?  # [width]
             (\.((\d+\$?|{{identifier}}\$)|\*)?)   ?  # ['.' precision]
-            (\?|{{identifier}})?  # [type]
+            ([xX]?\?|[oxXpbeE])?  # [type]
           )?
         \}
       scope: constant.other.placeholder.rust

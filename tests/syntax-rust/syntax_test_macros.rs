@@ -70,6 +70,35 @@ my_var = format!("Hello {name}, how are you?",
         eprint!("{:^10}", self.0)
 //      ^^^^^^^ support.macro
 //               ^^^^^^ constant.other.placeholder
+        println!("{}",6);
+//                ^^       constant.other.placeholder.rust
+        println!("{:>6}",6);
+//                ^^^^^    constant.other.placeholder.rust
+        println!("{:>pad$}",5,pad=2);
+//                ^^^^^^^^ constant.other.placeholder.rust
+        println!("{:?}"); //? ⇒ Debug
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:x?}"); //x? ⇒ Debug with lower-case hexadecimal integers
+//                ^^^^^    constant.other.placeholder.rust
+        println!("{:X?}"); //X? ⇒ Debug with upper-case hexadecimal integers
+//                ^^^^^    constant.other.placeholder.rust
+        println!("{:o}"); //o ⇒ Octal
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:x}"); //x ⇒ LowerHex
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:X}"); //X ⇒ UpperHex
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:p}"); //p ⇒ Pointer
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:b}"); //b ⇒ Binary
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:e}"); //e ⇒ LowerExp
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:E}"); //E ⇒ UpperExp
+//                ^^^^     constant.other.placeholder.rust
+        println!("{:>pad}",5,pad=2);
+//                ^^^^^^^  string.quoted.double.rust
+//                should be an error as it's missing the mandatory $ for the identifier 'pad', but currently the syntax file is too permissive as it doesn't split/check for subitems within the format escapes
         eprintln!("{:+046.89?}", self.0)
 //      ^^^^^^^^^ support.macro
 //                 ^^^^^^^^^^^ constant.other.placeholder

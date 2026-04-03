@@ -3,6 +3,8 @@ RustEnhanced ChangeLog
 
 # Unreleased
 
+# Version v2.28.002 (2026-04-03)
+
   - Upgrade to Python 3.8 plugin host
 
 

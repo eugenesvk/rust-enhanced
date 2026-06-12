@@ -8,7 +8,7 @@ extern crate dcrate;
 
 /*BEGIN*/example_bad_syntax!{}/*END*/
 //       ^^^^^^^^^^^^^^^^^^^^^HELP(>=1.44.0-beta) in this macro invocation
-//       ^^^^^^^^^^^^^^^^^^^^^ERR(>=1.71.0-beta) in this macro invocation
+//       ^^^^^^^^^^^^^^^^^^^^^ERR(>=1.71.0-beta,<1.98.0-beta) in this macro invocation
 //       ^^^^^^^^^^^^^^^^^^^^^MSG(>=1.44.0-beta) See Primary: lib.rs:20
 // ~ERR(>=1.20.0,<1.44.0-beta) /expected one of .*, found `:`/
 // ~ERR(>=1.20.0,<1.44.0-beta) this error originates in a macro outside of the current crate

@@ -11,7 +11,6 @@ import subprocess
 import sys
 import threading
 import time
-import shellenv
 import sublime
 import traceback
 
@@ -191,11 +190,6 @@ class RustProc(object):
 
         # Configure the environment.
         self.env = os.environ.copy()
-        if util.get_setting('rust_include_shell_env', True):
-            global USER_SHELL_ENV
-            if USER_SHELL_ENV is None:
-                USER_SHELL_ENV = shellenv.get_env()[1]
-            self.env.update(USER_SHELL_ENV)
 
         rust_env = util.get_setting('rust_env')
         if rust_env:

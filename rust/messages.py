@@ -351,7 +351,7 @@ def message_popup(view, point, hover_zone):
         on_nav = functools.partial(_click_handler, view, hide_popup=True)
         max_width = view.em_width() * 79
         _sublime_show_popup(view, minihtml, sublime.COOPERATE_WITH_AUTO_COMPLETE,
-            point, max_width=max_width, on_navigate=on_nav)
+            point, max_width=int(max_width), on_navigate=on_nav)
 
 
 STATUS_KEY = 'rust-msg-status'

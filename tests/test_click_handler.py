@@ -56,8 +56,9 @@ class TestClickHandler(TestBase):
             # Filter out just the "Accept Replacement" phantoms.
             click_urls = []
             for phantom in phantoms:
-                click_urls.extend(re.findall(r'<a .*href="(replace:[^"]+)"',
-                    phantom['content']))
+                urls = re.findall(r'<a .*href="(replace:[^"]+)"', phantom['content'])
+                urls = [url.replace('&amp;', '&') for url in urls]
+                click_urls.extend(urls)
             self.assertEqual(len(click_urls), len(after))
             for url, (lineno, expected_line) in zip(click_urls, after):
                 phantom['on_navigate'](url)

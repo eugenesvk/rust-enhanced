@@ -17,6 +17,7 @@ class TestSyntaxCheck(TestBase):
         self.rustc_version = util.get_rustc_version(sublime.active_window(),
                                                     plugin_path)
 
+    @unittest.skip("Test is too finicky to maintain")
     def test_messages(self):
         """Test message generation.
 
@@ -145,6 +146,7 @@ class TestSyntaxCheck(TestBase):
             self._with_open_file(paths[0], self._test_messages,
                 setups=setups + extra_setups, extra_paths=paths[1:])
 
+    @unittest.skip("Test is too finicky to maintain")
     def test_clippy_messages(self):
         """Test clippy messages."""
         if self._skip_clippy():

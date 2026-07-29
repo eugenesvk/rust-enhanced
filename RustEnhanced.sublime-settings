@@ -25,10 +25,6 @@
     // Specify environment variables to add when running Cargo.
     // "rust_env": {"PATH": "$PATH:$HOME/.cargo/bin"}
 
-    // If true, will use the environment from the user's login shell when
-    // running Cargo.
-    "rust_include_shell_env": true,
-
     // For errors/warnings, how to show the inline message.
     // "normal" - Shows the message inline.
     // "popup" - Show popup on mouse hover.

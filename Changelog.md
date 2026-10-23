@@ -3,6 +3,7 @@ RustEnhanced ChangeLog
 
 # Unreleased
 
+# Version v2.29.003 (2026-10-21)
   - Rebase onto v2.29.0
 
 # Version v2.28.003 (2026-07-29)

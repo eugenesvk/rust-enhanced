@@ -2,6 +2,8 @@ RustEnhanced ChangeLog
 ======================
 
 # Unreleased
+
+# Version v2.29.005 (2026-11-06)
   - Replace any whitespace matches with legal whitespace
 
 # Version v2.29.004 (2026-11-06)

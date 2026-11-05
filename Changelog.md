@@ -2,6 +2,7 @@ RustEnhanced ChangeLog
 ======================
 
 # Unreleased
+  - Replace any whitespace matches with legal whitespace
 
 # Version v2.29.004 (2026-11-06)
   - Add support for Rust-specced whitespace support, including in macro identifiers
